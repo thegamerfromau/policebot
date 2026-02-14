@@ -91,13 +91,26 @@ async function updateDisplay(guild, user, automatic = false) {
 
   const embed = buildEmbed(currentCode, automatic ? "Automatic Reset" : user?.tag);
 
-  if (!messageId) {
-    const msg = await channel.send({ embeds: [embed], components: [buildButtons()] });
-    messageId = msg.id;
-  } else {
-    const msg = await channel.messages.fetch(messageId);
+ let msg;
+
+try {
+  const existingId = process.env.STATUS_MESSAGE_ID;
+
+  if (existingId) {
+    msg = await channel.messages.fetch(existingId);
     await msg.edit({ embeds: [embed], components: [buildButtons()] });
+  } else {
+    msg = await channel.send({ embeds: [embed], components: [buildButtons()] });
+    console.log("COPY THIS MESSAGE ID INTO RAILWAY STATUS_MESSAGE_ID:");
+    console.log(msg.id);
   }
+
+} catch {
+  msg = await channel.send({ embeds: [embed], components: [buildButtons()] });
+  console.log("NEW MESSAGE CREATED — COPY ID:");
+  console.log(msg.id);
+}
+
 
   await renameChannel(guild, currentCode);
   scheduleReset(guild);
