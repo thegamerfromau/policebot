@@ -48,9 +48,9 @@ function hasPermission(member, code) {
 function buildEmbed(code, userTag) {
   const colors = { GREEN: 0x2ecc71, AMBER: 0xf39c12, RED: 0xe74c3c };
   const descriptions = {
-    GREEN: "Normal operations /nNo active incidents.",
-    AMBER: "Current Situation - Activated for 12 hours /n•Mandatory 2-up/3-up (where needed) within your division only /n•Public Order & Riot Squad are permitted to use SMGs while suspects are using pistols and up /n•Suspects are to be searched on site before medical attention",
-    RED: "Critical incident — Activated for 12 hours /n•Mandatory 2-up/3-up (where needed) (prefered within your division /n•Public Order & Riot Squad are permitted to use SMGs while suspects are using pistols and up /n• Public Order & Riot Squad Senior Opperators may carry rifles /n• Public Order & Riot Squad officers MUST be in PORS Tactical Gear /n•Suspects are to be searched on site before medical attention. /n• All weapons must be seized from individuals that cause the code red (Check Announcments) /n•Phone Calls are suspended for suspects that have commited Indictable Crimes against a Person /n•Stop & Search Prtocol for indivuals and vehicles that caused the code red /n• No Inductions/Interveiws are to take place "
+    GREEN: "Normal operations \nNo active incidents.",
+    AMBER: "Current Situation - Activated for 12 hours \n-Mandatory 2-up/3-up (where needed) within your division only \n-Public Order & Riot Squad are permitted to use SMGs while suspects are using pistols and up \n-Suspects are to be searched on site before medical attention",
+    RED: "Critical incident — Activated for 12 hours \n-Mandatory 2-up/3-up (where needed) (prefered within your division \n-Public Order & Riot Squad are permitted to use SMGs while suspects are using pistols and up \n- Public Order & Riot Squad Senior Opperators may carry rifles \n- Public Order & Riot Squad officers MUST be in PORS Tactical Gear /n•Suspects are to be searched on site before medical attention. \n• All weapons must be seized from individuals that cause the code red (Check Announcments) \n-Phone Calls are suspended for suspects that have commited Indictable Crimes against a Person \n-Stop & Search Prtocol for indivuals and vehicles that caused the code red \n- No Inductions/Interveiws are to take place "
   };
 
   return new EmbedBuilder()
