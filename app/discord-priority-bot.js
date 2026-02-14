@@ -116,11 +116,18 @@ try {
   scheduleReset(guild);
 }
 
-client.once('ready', async () => {
+client.once('clientReady', async () => {
   console.log(`Logged in as ${client.user.tag}`);
-  const guild = client.guilds.cache.first();
-  await updateDisplay(guild);
+
+  try {
+    const guild = await client.guilds.fetch(process.env.GUILD_ID);
+    await updateDisplay(guild);
+  } catch (err) {
+    console.error("Failed to fetch guild.");
+    console.error(err);
+  }
 });
+
 
 client.on('interactionCreate', async interaction => {
   if (!interaction.isButton()) return;
