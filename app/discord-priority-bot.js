@@ -70,10 +70,20 @@ function buildButtons() {
 }
 
 async function renameChannel(guild, code) {
-  const channel = await guild.channels.fetch(CONFIG.renameChannelId);
-  if (!channel) return;
-  await channel.setName(CONFIG.channelNames[code]);
+  try {
+    const channel = await guild.channels.fetch(CONFIG.renameChannelId);
+    if (!channel) {
+      console.error("Rename channel not found. Check RENAME_CHANNEL_ID.");
+      return;
+    }
+
+    await channel.setName(CONFIG.channelNames[code]);
+    console.log(`Channel renamed to ${CONFIG.channelNames[code]}`);
+  } catch (err) {
+    console.error("Failed to rename channel:", err);
+  }
 }
+
 
 function scheduleReset(guild) {
   if (resetTimeout) clearTimeout(resetTimeout);
