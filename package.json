@@ -1,0 +1,14 @@
+{
+  "name": "priority-bot",
+  "version": "1.0.0",
+  "description": "Discord priority protocol bot",
+  "main": "discord-priority-bot.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node discord-priority-bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5"
+  }
+}
